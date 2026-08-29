@@ -1,0 +1,206 @@
+:root {
+  --background: #fafafa;
+  --text: #202124;
+  --muted: #62666d;
+  --line: #dedede;
+  --link: #30445f;
+  --blue: #2563eb;
+  --yellow: #eab308;
+  --max-width: 820px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+a { color: var(--link); text-underline-offset: 4px; }
+a:hover { color: var(--text); }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { color: var(--text); line-height: 1.25; }
+
+h1 {
+  margin-bottom: 0.35rem;
+  font-size: clamp(2.3rem, 7vw, 3.25rem);
+  letter-spacing: -0.045em;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.45rem;
+  letter-spacing: -0.025em;
+}
+
+h3 { margin-bottom: 0.4rem; font-size: 1.08rem; }
+
+.wrap {
+  width: min(calc(100% - 2.5rem), var(--max-width));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.55rem 0.8rem;
+  transform: translateY(-200%);
+  background: var(--text);
+  color: white;
+}
+
+.skip-link:focus { transform: none; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(250, 250, 250, 0.96);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-links { display: flex; align-items: center; justify-content: center; gap: clamp(1.2rem, 5vw, 2.8rem); }
+.nav-links a { text-decoration: none; }
+.nav-links a[aria-current="page"] { color: var(--text); text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--yellow); }
+.nav-links a, .social-links a { font-size: 0.9rem; font-weight: 600; }
+
+.intro {
+  padding-top: clamp(5rem, 12vw, 8rem);
+  padding-bottom: 5rem;
+}
+
+.kicker { margin-bottom: 0.75rem; color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+.lead { max-width: 720px; margin-bottom: 3rem; color: var(--muted); font-size: clamp(1.1rem, 2.5vw, 1.3rem); }
+.about-copy p { margin-bottom: 1.4rem; }
+.work-on, .reviews { margin-top: 3.5rem; }
+.work-on ul { margin: 0; padding-left: 1.2rem; }
+.work-on li { margin-bottom: 0.45rem; }
+
+.reviews figure {
+  margin: 1.4rem 0;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--yellow);
+}
+
+.reviews blockquote { margin: 0 0 0.65rem; font-size: 1rem; }
+.reviews figcaption { color: var(--muted); font-size: 0.88rem; font-style: italic; }
+
+.back-link { margin-bottom: 2rem; font-size: 0.9rem; }
+.section-intro { margin-bottom: 2.5rem; color: var(--muted); }
+.experience-list,
+.project-list { border-top: 1px solid var(--line); }
+
+.experience-list article,
+.project-list article {
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.experience-list article:last-child,
+.project-list article:last-child {
+  border-bottom: 0;
+}
+
+.experience-list article > p { margin-bottom: 0; }
+.experience-summary { display: flex; justify-content: space-between; gap: 2rem; }
+.experience-summary p { margin-bottom: 0.55rem; color: var(--muted); font-size: 0.85rem; }
+.experience-summary > p { white-space: nowrap; }
+
+.project-card h2 { margin-bottom: 0.75rem; }
+
+.project-description {
+  margin: 0 0 0.65rem;
+  padding-left: 1.2rem;
+}
+
+.project-description li { margin-bottom: 0.4rem; }
+.project-description li:last-child { margin-bottom: 0; }
+.project-description li::marker { color: var(--yellow); }
+
+.tech-stack { margin-bottom: 0; color: var(--muted); font-size: 0.85rem; }
+.inner-page { min-height: calc(100vh - 150px); padding-top: clamp(4rem, 10vw, 7rem); padding-bottom: 5rem; }
+.page-heading { padding-bottom: 3rem; }
+.page-heading .lead { margin-bottom: 0; }
+.inner-page .experience-list h2,
+.inner-page .project-list h2 { margin-bottom: 0.4rem; font-size: 1.08rem; }
+.experience-list article > ul { margin-bottom: 0; padding-left: 1.2rem; }
+
+/* Resume download page */
+.resume-card {
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 2rem 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.resume-card h1 { font-size: 1.875rem; margin-bottom: 0.6rem; }
+.resume-card .lead { margin-inline: auto; margin-bottom: 1.5rem; font-size: 0.95rem; }
+
+.download-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  background: var(--text);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.download-btn:hover { background: var(--link); color: white; }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.footer p { margin: 0; }
+.social-links { display: flex; flex-wrap: wrap; gap: 1.4rem; }
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@media (max-width: 560px) {
+  .wrap { width: min(calc(100% - 2rem), var(--max-width)); }
+  .intro { padding-top: 4rem; }
+  .nav-links { gap: 0.6rem; }
+  .nav-links a { font-size: 0.7rem; }
+  .experience-summary { display: block; }
+  .footer { align-items: flex-start; flex-direction: column; }
+  .resume-card { padding: 2.5rem 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
